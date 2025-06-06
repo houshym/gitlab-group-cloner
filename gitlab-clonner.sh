@@ -29,8 +29,8 @@ while :; do
     echo "$PROJECTS"
     break
   fi
-
-  echo "$PROJECTS" | jq -r '.[].ssh_url_to_repo' | while read -r repo; do
+# use '.[].ssh_url_to_repo' in the following line to use ssh
+  echo "$PROJECTS" | jq -r '.[].http_url_to_repo' | while read -r repo; do
     git clone "$repo"
   done
 
